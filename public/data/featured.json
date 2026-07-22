@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "KEXP 90.3 FM",
+    "type": "radio",
+    "location": "Seattle, WA",
+    "description": "Independent music radio station known for discovering new artists and championing diverse sounds",
+    "website": "https://kexp.org"
+  },
+  {
+    "id": "2",
+    "name": "Pitchfork",
+    "type": "blog",
+    "location": "New York, NY",
+    "description": "Leading online music publication and tastemaker covering indie, electronic, and experimental music",
+    "website": "https://pitchfork.com"
+  },
+  {
+    "id": "3",
+    "name": "The Bowery Ballroom",
+    "type": "venue",
+    "location": "New York, NY",
+    "description": "Iconic NYC live music venue known for indie, rock, and breakthrough performances",
+    "website": "https://boweryballroom.com"
+  },
+  {
+    "id": "4",
+    "name": "Spotify Fresh Finds",
+    "type": "playlist",
+    "location": "Global",
+    "description": "Curated playlist featuring emerging independent artists across all genres",
+    "website": "https://open.spotify.com"
+  },
+  {
+    "id": "5",
+    "name": "Song Exploder",
+    "type": "podcast",
+    "location": "Los Angeles, CA",
+    "description": "Award-winning podcast where artists break down how they made their songs piece by piece",
+    "website": "https://songexploder.net"
+  },
+  {
+    "id": "6",
+    "name": "Sub Pop Records",
+    "type": "record_label",
+    "location": "Seattle, WA",
+    "description": "Legendary indie label behind Nirvana, Fleet Foxes, Beach House, and many more",
+    "website": "https://subpop.com"
+  }
+]

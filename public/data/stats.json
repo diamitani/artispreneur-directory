@@ -1,0 +1,20 @@
+{
+  "totalContacts": 78000,
+  "radioStations": 50000,
+  "venues": 6900,
+  "playlists": 4500,
+  "byType": {
+    "radio": 50000,
+    "venue": 6900,
+    "playlist": 4500,
+    "blog": 3200,
+    "podcast": 2800,
+    "record_label": 4100,
+    "magazine": 1800,
+    "press": 2400,
+    "newspaper": 1200,
+    "distributor": 600,
+    "publisher": 400,
+    "licensing_library": 100
+  }
+}
