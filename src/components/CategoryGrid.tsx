@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowRight, Radio, Globe, Building, Music, Podcast, Star, BookOpen, Users, Newspaper, Truck, Book, Library } from "lucide-react"
+import { ArrowRight, Radio, Globe, Building, Music, Podcast, Star, BookOpen, Users, Newspaper, Truck, Book, Library, Layers } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface CategoryStat {
@@ -23,6 +23,7 @@ const CATEGORIES = [
   { type: "distributor", label: "Distributors", icon: Truck, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" },
   { type: "publisher", label: "Publishers", icon: Book, image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600" },
   { type: "licensing_library", label: "Sync Libraries", icon: Library, image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600" },
+  { type: "resource", label: "Artist Resources", icon: Layers, image: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=600" },
 ]
 
 export default function CategoryGrid() {

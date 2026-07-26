@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Search, Radio, Globe, Building, Music, Podcast, Star, BookOpen, Users } from "lucide-react"
+import { Search, Radio, Globe, Building, Music, Podcast, Star, BookOpen, Users, Layers } from "lucide-react"
 import { cn } from "@/lib/cn"
 
 interface SearchBarProps {
@@ -18,6 +18,7 @@ const CATEGORIES = [
   { type: "record_label", label: "Labels", icon: Star },
   { type: "magazine", label: "Magazines", icon: BookOpen },
   { type: "press", label: "Press", icon: Users },
+  { type: "resource", label: "Resources", icon: Layers },
 ]
 
 export default function SearchBar({ variant = "hero" }: SearchBarProps) {

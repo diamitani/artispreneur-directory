@@ -77,7 +77,7 @@ export async function fetchStats(): Promise<StatsResult> {
     return await res.json()
   } catch {
     return {
-      totalContacts: 78000,
+      totalContacts: 79000,
       radioStations: 50000,
       venues: 6900,
       playlists: 4500,
@@ -85,6 +85,7 @@ export async function fetchStats(): Promise<StatsResult> {
         radio: 50000, venue: 6900, playlist: 4500, record_label: 4100,
         blog: 3200, podcast: 2800, press: 2400, magazine: 1800,
         newspaper: 1200, distributor: 600, publisher: 400, licensing_library: 100,
+        resource: 1000,
       },
     }
   }

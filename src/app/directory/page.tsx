@@ -7,6 +7,7 @@ import {
   Star, Users, Newspaper, Truck, Book, Library, X, ArrowRight, Mail,
   ChevronLeft, ChevronRight, Lock, Loader2,
 } from "lucide-react"
+import { Layers } from "lucide-react"
 import Link from "next/link"
 import { fetchContacts, fetchStats, type Contact } from "@/lib/api"
 import { useAuth } from "@/lib/AuthProvider"
@@ -25,6 +26,7 @@ const DIRECTORY_TYPES = [
   { type: "distributor", label: "Distributors", icon: Truck },
   { type: "publisher", label: "Publishers", icon: Book },
   { type: "licensing_library", label: "Sync Libraries", icon: Library },
+  { type: "resource", label: "Resources", icon: Layers },
 ]
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -32,6 +34,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   magazine: BookOpen, reviewer: Star, newspaper: Newspaper,
   press: Users, venue: Building, record_label: Star,
   distributor: Truck, publisher: Book, licensing_library: Library,
+  resource: Layers,
 }
 
 const TYPE_COLORS: Record<string, string> = {
@@ -41,6 +44,7 @@ const TYPE_COLORS: Record<string, string> = {
   magazine: "border-l-amber-400", press: "border-l-cyan-400",
   newspaper: "border-l-indigo-400", distributor: "border-l-orange-400",
   publisher: "border-l-green-400", licensing_library: "border-l-lime-400",
+  resource: "border-l-rose-400",
 }
 
 function useDebounce<T>(value: T, delay: number): T {

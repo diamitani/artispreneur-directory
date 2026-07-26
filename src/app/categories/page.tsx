@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Radio, Globe, Building, Music, Podcast, Star, BookOpen, Users, Newspaper, Truck, Book, Library } from "lucide-react"
+import { ArrowRight, Radio, Globe, Building, Music, Podcast, Star, BookOpen, Users, Newspaper, Truck, Book, Library, Layers } from "lucide-react"
 
 const CATEGORIES = [
   {
@@ -133,6 +133,17 @@ const CATEGORIES = [
     border: "border-lime-400/30",
     iconColor: "text-lime-400",
     image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800",
+  },
+  {
+    type: "resource",
+    label: "Artist Resources",
+    icon: Layers,
+    count: "1,000+",
+    description: "DAWs, distribution platforms, AI music tools, education, gear stores, legal resources, and more",
+    color: "from-rose-500/20 to-rose-600/10",
+    border: "border-rose-400/30",
+    iconColor: "text-rose-400",
+    image: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800",
   },
 ]
 

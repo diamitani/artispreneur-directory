@@ -19,7 +19,7 @@ CORS = {
 PAGE_SIZE = 24
 
 STATIC_STATS = {
-    "totalContacts": 78000,
+    "totalContacts": 79000,
     "radioStations": 50000,
     "venues": 6900,
     "playlists": 4500,
@@ -36,6 +36,7 @@ STATIC_STATS = {
         "distributor": 600,
         "publisher": 400,
         "licensing_library": 100,
+        "resource": 1000,
     }
 }
 
