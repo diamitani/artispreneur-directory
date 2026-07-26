@@ -1,88 +1,59 @@
 "use client"
 
 import { useState } from "react"
-import { Send, Sparkles, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { Mail, ArrowRight } from "lucide-react"
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (email) {
-      setSubmitted(true)
-      setEmail("")
-    }
+    if (email) setSubmitted(true)
   }
 
   return (
-    <section className="py-20 sm:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-500/5 via-brand-500/10 to-brand-500/5" />
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 50% 50% at 50% 50%, oklch(0.72 0.19 85 / 0.08), transparent)",
-        }}
-      />
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/20 text-xs font-bold uppercase tracking-[0.15em] mb-6 text-brand-500" style={{ background: "oklch(0.72 0.19 85 / 0.06)" }}>
-            <Sparkles className="h-3.5 w-3.5" />
-            Start for Free
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-            Ready to <span className="text-gradient-gold">Build Your Network?</span>
-          </h2>
-
-          <p className="text-lg text-warm-400 max-w-xl mx-auto leading-relaxed mb-8">
-            Join thousands of independent artists using the largest free music industry database. No credit card required.
-          </p>
-
-          <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <Link href="/auth/register">
-              <button className="h-12 px-8 rounded-xl bg-brand-500 text-navy-900 font-bold text-sm hover:bg-brand-400 transition-all flex items-center gap-2">
-                Get Started Free <ArrowRight className="h-4 w-4" />
-              </button>
-            </Link>
-            <Link href="/directory">
-              <button className="h-12 px-8 rounded-xl border border-warm-700/30 text-white font-bold text-sm hover:border-brand-500/30 transition-all">
-                Browse Database
-              </button>
-            </Link>
-          </div>
-
-          <div className="border-t border-warm-700/20 pt-10">
-            <p className="text-sm text-warm-500 mb-4">Get weekly industry insights & new contacts delivered to your inbox</p>
-            {submitted ? (
-              <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-brand-500/10 border border-brand-500/20">
-                <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <Send className="w-4 h-4 text-green-400" />
-                </div>
-                <p className="text-white font-medium">You&#39;re in! Check your inbox for a welcome email.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 px-5 py-3 rounded-xl bg-navy-400/50 border border-warm-700/30 text-white placeholder:text-warm-500 text-sm outline-none focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20 transition-all"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 rounded-xl bg-brand-500 text-navy-900 font-semibold text-sm hover:bg-brand-400 transition-all whitespace-nowrap flex items-center justify-center gap-2"
-                >
-                  Subscribe <Send className="w-4 h-4" />
-                </button>
-              </form>
-            )}
-          </div>
+    <section className="py-20 sm:py-28 bg-[#1A1A1A] text-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="eyebrow mb-4 flex items-center justify-center gap-2 text-[#F5C100]">
+          <div className="h-px w-6 bg-[#F5C100]" />
+          STAY IN THE LOOP
+          <div className="h-px w-6 bg-[#F5C100]" />
         </div>
+        <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">
+          Get Weekly Music Industry <span className="text-[#F5C100]">Insights</span>
+        </h2>
+        <p className="text-white/60 text-lg leading-relaxed mb-8">
+          New contacts, promotion tips, and industry news — straight to your inbox. Free forever.
+        </p>
+
+        {submitted ? (
+          <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/10 border border-[#F5C100]/30">
+            <span className="w-2 h-2 rounded-full bg-[#F5C100] animate-pulse" />
+            <span className="text-[#F5C100] font-bold">You're on the list. Art Means Business.</span>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <div className="relative flex-1">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+              <input
+                type="email" required value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                className="w-full h-12 pl-11 pr-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm outline-none focus:border-[#F5C100]/50 focus:bg-white/15 transition-all"
+              />
+            </div>
+            <button type="submit"
+              className="h-12 px-6 rounded-xl bg-[#C0272D] text-white font-bold text-sm hover:bg-[#A12024] transition-all flex items-center gap-2 justify-center shrink-0">
+              Subscribe <ArrowRight className="w-4 h-4" />
+            </button>
+          </form>
+        )}
+
+        <p className="text-xs text-white/30 mt-4">
+          No spam. Unsubscribe anytime.
+        </p>
       </div>
     </section>
   )

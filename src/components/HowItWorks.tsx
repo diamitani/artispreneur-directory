@@ -10,36 +10,33 @@ const steps = [
     step: "01",
     title: "Discover",
     description: "Browse thousands of radio stations, venues, blogs, and playlists. Filter by type, location, or search for exactly what you need.",
-    color: "bg-brand-500 text-navy-900",
   },
   {
     icon: Target,
     step: "02",
     title: "Connect",
     description: "Access verified contact details and submit your EPK, pitch, or music directly to the right people at the right places.",
-    color: "bg-brand-500 text-navy-900",
   },
   {
     icon: TrendingUp,
     step: "03",
     title: "Grow",
     description: "Track your outreach, book shows, get press coverage, and land playlist placements. Build real momentum for your career.",
-    color: "bg-brand-500 text-navy-900",
   },
 ]
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 sm:py-28 bg-navy-500 border-y border-warm-700/20">
+    <section className="py-20 sm:py-28 bg-[#F9F6EF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="eyebrow mb-4 flex items-center justify-center gap-2">
-            <div className="h-px w-6 bg-brand-500" />
+            <div className="h-px w-6 bg-[#C0272D]" />
             HOW IT WORKS
-            <div className="h-px w-6 bg-brand-500" />
+            <div className="h-px w-6 bg-[#C0272D]" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">
-            From Search to Booking in <span className="text-brand-500">Three Steps</span>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-[#1A1A1A] mb-4">
+            From Search to Booking in <span className="text-[#C0272D]">Three Steps</span>
           </h2>
         </div>
 
@@ -54,18 +51,21 @@ export default function HowItWorks() {
               className="relative text-center"
             >
               <div className="flex flex-col items-center">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-5 ${step.color}`}>
-                  <step.icon className="w-7 h-7" />
+                {/* Step number badge */}
+                <div className="relative mb-5">
+                  <div className="w-16 h-16 rounded-2xl bg-[#C0272D] flex items-center justify-center shadow-lg">
+                    <step.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#F5C100] text-[#1A1A1A] text-xs font-black flex items-center justify-center shadow">
+                    {i + 1}
+                  </div>
                 </div>
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-brand-500 text-navy-900 text-sm font-bold flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 20px oklch(0.72 0.19 85 / 0.3)" }}>
-                  {i + 1}
-                </div>
-                <div className="text-sm font-black mb-2 text-brand-500 font-heading">{step.step}</div>
-                <h3 className="text-xl font-heading font-semibold text-white mb-2">{step.title}</h3>
-                <p className="text-warm-400 text-sm leading-relaxed max-w-xs">{step.description}</p>
+                <div className="text-sm font-black mb-2 text-[#C0272D] font-heading tracking-wider">{step.step}</div>
+                <h3 className="text-xl font-heading font-semibold text-[#1A1A1A] mb-2">{step.title}</h3>
+                <p className="text-[#4A4A4A] text-sm leading-relaxed max-w-xs">{step.description}</p>
               </div>
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 -right-4 text-warm-600">
+                <div className="hidden md:block absolute top-8 -right-4 text-[#D4CBBA]">
                   <ArrowRight className="w-6 h-6" />
                 </div>
               )}
@@ -76,7 +76,7 @@ export default function HowItWorks() {
         <div className="flex justify-center mt-12">
           <Link
             href="/directory"
-            className="inline-flex items-center gap-2 bg-brand-500 text-navy-900 px-6 py-3 rounded-xl font-bold hover:bg-brand-400 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 bg-[#C0272D] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#A12024] transition-all hover:scale-[1.02] shadow-md hover:shadow-lg"
           >
             Browse Database
             <ArrowRight className="w-4 h-4" />

@@ -139,22 +139,22 @@ function DirectoryContent() {
   }
 
   return (
-    <div className="min-h-screen bg-navy-500 pt-24 pb-20">
+    <div className="min-h-screen bg-[#F9F6EF] pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
           <div>
-            <h1 className="text-3xl lg:text-4xl font-heading font-bold text-white">
+            <h1 className="text-3xl lg:text-4xl font-heading font-bold text-[#1A1A1A]">
               {activeType === "all" ? "Browse All Contacts" : typeLabel}
             </h1>
-            <p className="text-sm mt-1 text-warm-400">
+            <p className="text-sm mt-1 text-[#4A4A4A]">
               {isLoading ? "Loading..." : `${totalContacts.toLocaleString()}+ verified contacts`}
               {debouncedSearch && ` matching "${debouncedSearch}"`}
             </p>
           </div>
           <Link href="/categories">
-            <button className="h-10 px-4 rounded-xl text-sm font-semibold border border-warm-700/30 text-warm-400 hover:text-white hover:border-brand-500/30 transition-all flex items-center gap-1.5">
+            <button className="h-10 px-4 rounded-xl text-sm font-semibold border border-warm-700/30 text-[#4A4A4A] hover:text-[#1A1A1A] hover:border-brand-500/30 transition-all flex items-center gap-1.5">
               All Categories <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </Link>
@@ -163,7 +163,7 @@ function DirectoryContent() {
         {/* Sticky filters */}
         <div
           ref={browseRef}
-          className="sticky z-30 top-20 pb-6 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 bg-navy-500/95 backdrop-blur-md border-b border-warm-700/20"
+          className="sticky z-30 top-20 pb-6 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 bg-[#F9F6EF]/95 backdrop-blur-md border-b border-warm-700/20"
         >
           <div className="flex items-center gap-2 overflow-x-auto pb-3 hide-scrollbar">
             {DIRECTORY_TYPES.map((cat) => {
@@ -176,8 +176,8 @@ function DirectoryContent() {
                   onClick={() => setActiveType(cat.type)}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border transition-all shrink-0 ${
                     activeType === cat.type
-                      ? "bg-brand-500 text-navy-900 border-brand-500"
-                      : "border-warm-700/30 text-warm-400 hover:text-white hover:border-brand-500/30"
+                      ? "bg-[#C0272D] text-white border-brand-500"
+                      : "border-warm-700/30 text-[#4A4A4A] hover:text-[#1A1A1A] hover:border-brand-500/30"
                   }`}
                 >
                   <cat.icon className="h-3.5 w-3.5" />
@@ -191,16 +191,16 @@ function DirectoryContent() {
           </div>
 
           <div className="relative search-glow rounded-xl mt-3">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-warm-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8a8070]" />
             <input
               type="text"
               placeholder={`Search ${activeType === "all" ? "all contacts" : typeLabel.toLowerCase()}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full h-11 pl-11 pr-10 text-sm rounded-xl border border-warm-700/30 bg-navy-400/50 text-white placeholder:text-warm-500 outline-none transition-colors"
+              className="w-full h-11 pl-11 pr-10 text-sm rounded-xl border border-warm-700/30 bg-navy-400/50 text-[#1A1A1A] placeholder:text-[#8a8070] outline-none transition-colors"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-warm-500 hover:text-white">
+              <button onClick={() => setSearchQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8a8070] hover:text-[#1A1A1A]">
                 <X className="h-4 w-4" />
               </button>
             )}
@@ -210,7 +210,7 @@ function DirectoryContent() {
         {/* Cards */}
         {isLoading ? (
           <div className="flex items-center justify-center py-32">
-            <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#C0272D]" />
           </div>
         ) : contacts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-6">
@@ -225,36 +225,36 @@ function DirectoryContent() {
                   className={`listing-card rounded-2xl p-5 border-l-2 ${borderColor} flex flex-col relative overflow-hidden`}
                 >
                   {isBlurred && (
-                    <div className="absolute inset-0 backdrop-blur-sm bg-navy-500/60 z-10 flex flex-col items-center justify-center gap-3 rounded-2xl">
-                      <Lock className="w-6 h-6 text-brand-500" />
-                      <p className="text-xs text-warm-400 text-center px-4">
-                        <Link href="/signup" className="text-brand-500 font-semibold hover:text-brand-400">Create free account</Link>
+                    <div className="absolute inset-0 backdrop-blur-sm bg-[#F9F6EF]/60 z-10 flex flex-col items-center justify-center gap-3 rounded-2xl">
+                      <Lock className="w-6 h-6 text-[#C0272D]" />
+                      <p className="text-xs text-[#4A4A4A] text-center px-4">
+                        <Link href="/signup" className="text-[#C0272D] font-semibold hover:text-brand-400">Create free account</Link>
                         {" "}to unlock all contacts
                       </p>
                     </div>
                   )}
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-sm text-white truncate">{contact.name}</h3>
+                      <h3 className="font-bold text-sm text-[#1A1A1A] truncate">{contact.name}</h3>
                       {contact.location && (
-                        <div className="flex items-center gap-1 mt-1 text-xs text-warm-400">
+                        <div className="flex items-center gap-1 mt-1 text-xs text-[#4A4A4A]">
                           <MapPin className="h-3 w-3 shrink-0" />
                           <span className="truncate">{contact.location}</span>
                         </div>
                       )}
                     </div>
-                    <span className="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border border-warm-700/30 text-warm-400 ml-2">
+                    <span className="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border border-warm-700/30 text-[#4A4A4A] ml-2">
                       {contact.type?.replace(/_/g, " ") || "contact"}
                     </span>
                   </div>
                   {contact.description && (
-                    <p className="text-xs text-warm-400 line-clamp-2 mb-3 leading-relaxed flex-1">
+                    <p className="text-xs text-[#4A4A4A] line-clamp-2 mb-3 leading-relaxed flex-1">
                       {contact.description}
                     </p>
                   )}
                   {contact.genre && (
                     <div className="mb-2">
-                      <span className="text-[10px] font-semibold text-brand-500 bg-brand-500/10 px-2 py-0.5 rounded-full border border-brand-500/20">
+                      <span className="text-[10px] font-semibold text-[#C0272D] bg-[#C0272D]/10 px-2 py-0.5 rounded-full border border-brand-500/20">
                         {contact.genre}
                       </span>
                     </div>
@@ -263,16 +263,16 @@ function DirectoryContent() {
                     {contact.website && (
                       <a href={contact.website.startsWith("http") ? contact.website : `https://${contact.website}`}
                         target="_blank" rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-xs font-semibold text-brand-500 hover:text-brand-400">
+                        className="flex items-center gap-1 text-xs font-semibold text-[#C0272D] hover:text-brand-400">
                         <Globe className="h-3 w-3" /> Visit
                       </a>
                     )}
                     {contact.email && user ? (
-                      <a href={`mailto:${contact.email}`} className="flex items-center gap-1 text-xs font-semibold text-warm-400 hover:text-white ml-auto">
+                      <a href={`mailto:${contact.email}`} className="flex items-center gap-1 text-xs font-semibold text-[#4A4A4A] hover:text-[#1A1A1A] ml-auto">
                         <Mail className="h-3 w-3" /> Email
                       </a>
                     ) : contact.email && (
-                      <span className="flex items-center gap-1 text-xs text-warm-600 ml-auto">
+                      <span className="flex items-center gap-1 text-xs text-[#D4CBBA] ml-auto">
                         <Lock className="h-3 w-3" /> Email
                       </span>
                     )}
@@ -283,8 +283,8 @@ function DirectoryContent() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <Search className="h-12 w-12 text-warm-500 mx-auto mb-4 opacity-30" />
-            <p className="text-warm-400">No results found. Try a different search or filter.</p>
+            <Search className="h-12 w-12 text-[#8a8070] mx-auto mb-4 opacity-30" />
+            <p className="text-[#4A4A4A]">No results found. Try a different search or filter.</p>
           </div>
         )}
 
@@ -294,17 +294,17 @@ function DirectoryContent() {
             <button
               onClick={goPrev}
               disabled={pageIndex === 0}
-              className="flex items-center gap-2 h-10 px-5 rounded-xl border border-warm-700/30 text-warm-400 hover:text-white hover:border-brand-500/30 disabled:opacity-30 transition-all text-sm font-medium"
+              className="flex items-center gap-2 h-10 px-5 rounded-xl border border-warm-700/30 text-[#4A4A4A] hover:text-[#1A1A1A] hover:border-brand-500/30 disabled:opacity-30 transition-all text-sm font-medium"
             >
               <ChevronLeft className="h-4 w-4" /> Previous
             </button>
-            <span className="text-xs text-warm-500 font-mono">
+            <span className="text-xs text-[#8a8070] font-mono">
               Page {pageIndex + 1}
             </span>
             <button
               onClick={goNext}
               disabled={!nextCursor}
-              className="flex items-center gap-2 h-10 px-5 rounded-xl border border-warm-700/30 text-warm-400 hover:text-white hover:border-brand-500/30 disabled:opacity-30 transition-all text-sm font-medium"
+              className="flex items-center gap-2 h-10 px-5 rounded-xl border border-warm-700/30 text-[#4A4A4A] hover:text-[#1A1A1A] hover:border-brand-500/30 disabled:opacity-30 transition-all text-sm font-medium"
             >
               Next <ChevronRight className="h-4 w-4" />
             </button>
@@ -314,20 +314,20 @@ function DirectoryContent() {
         {/* Sign-up CTA for guests */}
         {!user && contacts.length > 0 && (
           <div className="mt-16 text-center listing-card rounded-2xl p-10 max-w-2xl mx-auto">
-            <div className="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mx-auto mb-5">
-              <Lock className="w-6 h-6 text-brand-500" />
+            <div className="w-14 h-14 rounded-2xl bg-[#C0272D]/10 border border-brand-500/20 flex items-center justify-center mx-auto mb-5">
+              <Lock className="w-6 h-6 text-[#C0272D]" />
             </div>
-            <h3 className="text-2xl font-heading font-bold text-white mb-3">
+            <h3 className="text-2xl font-heading font-bold text-[#1A1A1A] mb-3">
               Unlock All {totalContacts.toLocaleString()}+ Contacts
             </h3>
-            <p className="text-warm-400 text-sm mb-6 max-w-md mx-auto">
+            <p className="text-[#4A4A4A] text-sm mb-6 max-w-md mx-auto">
               Create a free account to access full contact details, emails, websites, and filter across all 78,000+ music industry contacts.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/signup" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-500 text-navy-900 font-bold text-sm hover:bg-brand-400 transition-all">
+              <Link href="/signup" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#C0272D] text-white font-bold text-sm hover:bg-brand-400 transition-all">
                 Create Free Account <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/login" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-warm-700/30 text-warm-300 font-semibold text-sm hover:border-brand-500/30 hover:text-white transition-all">
+              <Link href="/login" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-warm-700/30 text-warm-300 font-semibold text-sm hover:border-brand-500/30 hover:text-[#1A1A1A] transition-all">
                 Sign In
               </Link>
             </div>
@@ -340,7 +340,7 @@ function DirectoryContent() {
 
 export default function DirectoryPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-navy-500 pt-24 pb-20 flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-brand-500" /></div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#F9F6EF] pt-24 pb-20 flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-[#C0272D]" /></div>}>
       <DirectoryContent />
     </Suspense>
   )
