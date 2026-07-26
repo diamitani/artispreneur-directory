@@ -41,9 +41,9 @@ export default function FeaturedContacts() {
   const [contacts, setContacts] = useState<Contact[]>([])
 
   useEffect(() => {
-    fetch("/data/featured.json")
+    fetch("https://xz63nlwl0l.execute-api.us-east-1.amazonaws.com/prod/contacts")
       .then((r) => r.json())
-      .then((d) => setContacts(d.slice(0, 6)))
+      .then((d) => setContacts((d.items || d).slice(0, 6)))
       .catch(() => {
         setContacts([
           { id: "1", name: "KEXP 90.3 FM", type: "radio", location: "Seattle, WA", description: "Independent music radio station known for discovering new artists" },

@@ -31,3 +31,8 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+scripts/contacts.json
+scripts/contacts_by_type/
+scripts/contacts_stats.json
+scripts/contacts_featured.json
+lambda/*.zip

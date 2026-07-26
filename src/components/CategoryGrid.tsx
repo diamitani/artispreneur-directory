@@ -29,7 +29,7 @@ export default function CategoryGrid() {
   const [stats, setStats] = useState<CategoryStat[]>([])
 
   useEffect(() => {
-    fetch("/data/stats.json")
+    fetch("https://xz63nlwl0l.execute-api.us-east-1.amazonaws.com/prod/stats")
       .then((r) => r.json())
       .then((d) => {
         if (d.byType) {

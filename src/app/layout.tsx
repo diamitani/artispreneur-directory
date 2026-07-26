@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { AuthProvider } from "@/lib/AuthProvider"
 
 export const metadata: Metadata = {
   title: "Artispreneur — The Music Industry Database",
@@ -28,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen flex flex-col antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </AuthProvider>
         <Analytics />
       </body>
     </html>
