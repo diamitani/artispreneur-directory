@@ -3,13 +3,14 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Menu, X, Search, LogIn, LogOut, User, ChevronDown, Loader2 } from "lucide-react"
+import { Menu, X, Search, LogIn, LogOut, User, ChevronDown, Loader2, Music } from "lucide-react"
 import { cn } from "@/lib/cn"
 import { useAuth } from "@/lib/AuthProvider"
 import { logout } from "@/lib/auth"
 
 const navLinks = [
   { href: "/directory", label: "Browse" },
+  { href: "/playlists", label: "Playlists" },
   { href: "/categories", label: "Categories" },
   { href: "/pricing", label: "Pricing" },
 ]

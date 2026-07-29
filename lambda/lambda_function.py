@@ -49,7 +49,7 @@ def make_response(status, body):
     }
 
 
-def scan_contacts(type_filter=None, query=None, last_key=None, limit=PAGE_SIZE):
+def scan_contacts(type_filter=None, genre_filter=None, query=None, last_key=None, limit=PAGE_SIZE):
     kwargs = {}
     if last_key:
         kwargs["ExclusiveStartKey"] = last_key
@@ -63,14 +63,23 @@ def scan_contacts(type_filter=None, query=None, last_key=None, limit=PAGE_SIZE):
         expr_names["#tp"] = "type"
         expr_values[":type"] = type_filter
 
+    if genre_filter and genre_filter.strip():
+        filter_parts.append("contains(#genre, :genre)")
+        expr_names["#genre"] = "genre"
+        expr_values[":genre"] = genre_filter.strip()
+
     if query and query.strip():
         q = query.strip()
         filter_parts.append(
-            "(contains(#nm, :q) OR contains(#loc, :q) OR contains(#desc, :q))"
+            "(contains(#nm, :q) OR contains(#loc, :q) OR contains(#desc, :q)"
+            " OR contains(#genre, :q) OR contains(#curator, :q))"
         )
         expr_names["#nm"] = "name"
         expr_names["#loc"] = "location"
         expr_names["#desc"] = "description"
+        if "#genre" not in expr_names:
+            expr_names["#genre"] = "genre"
+        expr_names["#curator"] = "curator_contact"
         expr_values[":q"] = q
 
     if filter_parts:
@@ -114,11 +123,16 @@ def lambda_handler(event, context):
     if path.endswith("/stats"):
         return make_response(200, STATIC_STATS)
 
-    # GET /contacts
-    if "/contacts" in path or "/directory" in path:
+    # GET /contacts or /directory
+    if "/contacts" in path or "/directory" in path or "/playlists" in path:
         type_filter = params.get("type", "all")
+        genre_filter = params.get("genre")
         query = params.get("q", "")
         cursor = params.get("cursor")
+
+        # /playlists defaults to type=playlist
+        if "/playlists" in path and type_filter == "all":
+            type_filter = "playlist"
 
         last_key = None
         if cursor:
@@ -129,6 +143,7 @@ def lambda_handler(event, context):
 
         items, next_key = scan_contacts(
             type_filter=type_filter,
+            genre_filter=genre_filter,
             query=query,
             last_key=last_key,
             limit=PAGE_SIZE,

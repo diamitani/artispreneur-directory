@@ -22,6 +22,22 @@ export interface Contact {
   platform?: string
   capacity?: string
   followers?: string
+  // Playlist-specific fields
+  curator_contact?: string
+  playlist_link?: string
+  song_count?: string
+  facebook?: string
+  twitter?: string
+  instagram?: string
+  youtube?: string
+  // Email verification fields
+  verification_verdict?: string
+  verification_confidence?: string
+  verification_detail?: string
+  // Source tracking
+  source_type?: string
+  source_url?: string
+  source_notes?: string
 }
 
 export interface ContactsResult {
@@ -41,15 +57,18 @@ export interface StatsResult {
 
 export async function fetchContacts({
   type = "all",
+  genre,
   q = "",
   cursor,
 }: {
   type?: string
+  genre?: string
   q?: string
   cursor?: string | null
 }): Promise<ContactsResult> {
   const params = new URLSearchParams()
   if (type && type !== "all") params.set("type", type)
+  if (genre) params.set("genre", genre)
   if (q) params.set("q", q)
   if (cursor) params.set("cursor", cursor)
 
@@ -89,4 +108,16 @@ export async function fetchStats(): Promise<StatsResult> {
       },
     }
   }
+}
+
+export async function fetchPlaylists({
+  genre,
+  q = "",
+  cursor,
+}: {
+  genre?: string
+  q?: string
+  cursor?: string | null
+} = {}): Promise<ContactsResult> {
+  return fetchContacts({ type: "playlist", genre, q, cursor })
 }
