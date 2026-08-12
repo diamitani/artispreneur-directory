@@ -1,0 +1,7 @@
+# Artispreneur v3 backend
+__pycache__/
+*.pyc
+.venv/
+venv/
+data/
+.env
