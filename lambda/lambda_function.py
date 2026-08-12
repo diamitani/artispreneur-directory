@@ -19,24 +19,24 @@ CORS = {
 PAGE_SIZE = 24
 
 STATIC_STATS = {
-    "totalContacts": 79000,
+    "totalContacts": 72313,
     "radioStations": 50000,
     "venues": 6900,
-    "playlists": 4500,
+    "playlists": 260,
     "byType": {
         "radio": 50000,
         "venue": 6900,
-        "playlist": 4500,
+        "blog": 4547,
         "record_label": 4100,
-        "blog": 3200,
-        "podcast": 2800,
-        "press": 2400,
-        "magazine": 1800,
-        "newspaper": 1200,
+        "newspaper": 2641,
+        "resource": 1001,
+        "podcast": 999,
         "distributor": 600,
+        "magazine": 466,
         "publisher": 400,
+        "press": 299,
+        "playlist": 260,
         "licensing_library": 100,
-        "resource": 1000,
     }
 }
 

@@ -32,6 +32,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 scripts/contacts.json
+scripts/contacts-import.json
 scripts/contacts_by_type/
 scripts/contacts_stats.json
 scripts/contacts_featured.json
